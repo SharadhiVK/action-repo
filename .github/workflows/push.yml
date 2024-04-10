@@ -25,5 +25,4 @@ jobs:
 
       - name: Run tests
         run: |
-          # Add commands to run tests here, for example:
-          # python -m pytest
+          python -m pytest
