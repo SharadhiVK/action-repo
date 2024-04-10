@@ -21,7 +21,7 @@ jobs:
     - name: Send webhook
       uses: distributhor/webhook-action@v2
       with:
-        url: ${{ secrets.WEBHOOK_URL }}
+        url: ${{ secrets.https://big-coins-fly.loca.lt }}
         method: POST
         headers: '{"Content-Type": "application/json"}'
         data: '{"event": "${{ github.event_name }}", "payload": "${{ toJson(github.event) }}" }'
