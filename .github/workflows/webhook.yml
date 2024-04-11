@@ -3,25 +3,23 @@ name: Webhook
 on:
   push:
     branches:
-      - '*' 
+      - '*'
   pull_request:
     types: [opened, synchronize, reopened, closed]
   pull_request_review:
     types: [submitted]
   pull_request_review_comment:
     types: [created, edited, deleted]
-  merge:
-    types: [closed]
 
 jobs:
   send-webhook:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Send webhook
-      uses: distributhor/webhook-action@v2
-      with:
-        url: ${{ secrets.https://big-coins-fly.loca.lt }}
-        method: POST
-        headers: '{"Content-Type": "application/json"}'
-        data: '{"event": "${{ github.event_name }}", "payload": "${{ toJson(github.event) }}" }'
+      - name: Send webhook
+        uses: distributhor/webhook-action@v2
+        with:
+          url: ${{ secrets.https://big-coins-fly.loca.lt }}
+          method: POST
+          headers: '{"Content-Type": "application/json"}'
+          data: '{"event": "${{ github.event_name }}", "payload": "${{ toJson(github.event) }}" }'
